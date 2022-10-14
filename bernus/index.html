@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Bernus</title><meta charset="utf-8" />       
+    <meta name="description" content="Clavis Artis" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author" content="RedMagicBlue">
+    <meta property="og:image" content="/images/redmagicblue.png" />
+    <link rel="icon" type="image/png" href="./images/redmagicblue.png" />
+    <script src="assets/engine.js"></script>
+    <script src="assets/physics.js"></script>
+    <script src="assets/extras.js"></script>
+    <script src="assets/environment.js"></script>
+    <script src="assets/gif.js"></script>
+    <script src="assets/teleport.js"></script>
+    <script src="assets/event.js"></script>
+    <script src="assets/sound.js"></script>
+
+<style>
+.a-dialog-allow-button {
+  background-color: #00ffff;
+}
+
+.a-dialog-deny-button {
+  background-color: white;
+}
+
+.a-dialog-ok-button {
+   background-color: black;
+ }
+</style>
+
+</head>
+
+
+  <body>
+
+<a-scene physics="debug: true" loading-screen="dotsColor: #00ffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse">
+
+<!-- World -->
+
+<a-entity id="environment" environment="preset: tron; dressingAmount: 0; dressingColor: #00ffff;  gridColor: #00ffff;"></a-entity>
+
+<!-- Sound -->
+
+    <audio id="music01" src="assets/01.mp3" crossorigin="anonymous"></audio>
+    <audio id="music02" src="assets/02.mp3" crossorigin="anonymous"></audio>
+    <audio id="music03" src="assets/03.mp3" crossorigin="anonymous"></audio>
+    <audio id="music04" src="assets/04.mp3" crossorigin="anonymous"></audio>
+    <audio id="music05" src="assets/05.mp3" crossorigin="anonymous"></audio>
+    <audio id="music06" src="assets/06.mp3" crossorigin="anonymous"></audio>
+    <audio id="music07" src="assets/07.mp3" crossorigin="anonymous"></audio>
+    <audio id="music08" src="assets/08.mp3" crossorigin="anonymous"></audio>
+    <audio id="music09" src="assets/09.mp3" crossorigin="anonymous"></audio>
+
+<script>
+document.addEventListener("click", function () {
+  document.querySelector("a-text").setAttribute("visible", false);
+});
+
+function playing(index) {
+  console.log("now playing", index);
+  document.querySelector("#player").setAttribute("visible", true);
+}
+</script>
+
+<!-- Camera -->
+
+<a-entity id="rig" position="0 0 0" movement-controls kinematic-body look-controls="pointerLockEnabled:true;">
+<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
+
+<a-cursor position="0 0 -.05" color="white" scale=".03 .03 1"></a-cursor>
+</a-entity>
+</a-entity>
+
+<!-- Objects -->
+
+<a-entity id="wall1" sound="src: #music01; on: click;" scale="6 8 1" rotation="0 0 0" static-body position="0 0 3" geometry="" material="src:url(images/01.png);"> 
+</a-entity>
+
+
+
+<!-- Logo -->
+
+<a-plane width="2" height="2" position="-1 2 -4" material="src: images/pc.png; transparent: true" shadow="" geometry="" rotation="0 0 0"></a-plane>
+<a-plane width="2" height="2" position="1 2 -4" material="src: images/mobile.png; transparent: true" shadow="" geometry="" rotation="0 0 0"></a-plane>
+
+
+<!-- Floor -->
+
+<a-plane static-body material="opacity: 0.0; transparent: true" width="100000" height="100000" rotation="-90 0 0" position="0 0 0"></a-plane>
+ 
+</a-scene>
+
+  </body>
+</html>
+
+
+
+
+
+
