@@ -35,11 +35,11 @@
 
   <body>
 
-<a-scene physics loading-screen="dotsColor: #00ffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse">
+<a-scene physics="debug: true" loading-screen="dotsColor: #00ffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse">
 
 <!-- World -->
 <a-ocean color="#92E2E2" width="5000" depth="5000" density="30" speed="5" position="0 1 0"></a-ocean>
-<a-entity id="environment" environment="preset: forest;" static-body ></a-entity>
+<a-entity id="environment" environment="preset: forest; static-body"  ></a-entity>
 
 <!-- Sound -->
 
@@ -66,10 +66,10 @@ function playing(index) {
 
 <!-- Camera -->
 <a-entity id="rig" position="0 0 0" movement-controls kinematic-body look-controls="pointerLockEnabled:true;">
-<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
-  <a-box scale="1 1 1" position="0 1.6 0"></a>
+<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true"> 
 <a-cursor position="0 0 -.05" color="white" scale=".03 .03 1"></a-cursor>
 </a-entity>
+  <a-box scale="1 1 1" position="0 1.6 0"></a>
 </a-entity>
 
 <!-- Objects -->
