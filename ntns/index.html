@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>No Time No Space - RedMagicBlue Games</title><meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+     <script src="assets/engine.js"></script>
+    <script src="assets/physics.js"></script>
+    <script src="assets/extras.js"></script>
+    <script src="assets/environment.js"></script>
+    <script src="assets/event.js"></script>
+    <script src="assets/walls.js"></script>
+  </head>
+
+<style>
+.a-dialog-allow-button {
+  background-color: white;
+}
+
+.a-dialog-deny-button {
+  background-color: white;
+}
+
+.a-dialog-ok-button {
+   background-color: black;
+ }
+</style>
+
+</head>
+
+
+  <body>
+
+<a-scene physics="debug: false; loading-screen="dotsColor: red; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" antialias="true">
+
+
+<!-- World -->
+
+<a-entity id="environment" environment="preset: tron; dressingAmount: 100; dressingColor: blue; groundColor: black; groundColor2: black; groundTexture:checkerboard; gridColor: red; ground: spikes; horizonColor:red;"></a-entity>
+
+
+<!-- Sound -->
+
+    <audio id="music" src="assets/sound.wav" crossorigin="anonymous"></audio>
+    
+<script>
+document.addEventListener("click", function () {
+});
+
+function playing(index) {
+  console.log("now playing", index);
+  document.querySelector("#player").setAttribute("visible", true);
+}
+</script>
+
+
+<!-- Camera -->
+
+<a-entity id="rig" position="0 20 50" look-controls="pointerLockEnabled:true;" animation="property:position; to: 0 0 10; easing: easeOutQuad; dur: 10000">
+	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
+		<a-cursor position="0 0 -0.05" color="white" scale=".03 .03 1"></a-cursor>
+	</a-entity>
+</a-entity>
+
+
+<!-- Logo -->
+
+
+<a-image src="notimenospace.png" position="0 4 5" ></a-image>
+<a-plane width="2" height="2" position="-1 2 5" onclick="location.href='level1.html'" material="src: images/pc.png;     transparent: true" shadow="" geometry="" rotation="0 0 0"></a-plane>
+<a-plane width="2" height="2" position="1 2 5"  onclick="location.href='level1.html'" material="src: images/mobile.png; transparent: true" shadow="" geometry="" rotation="0 0 0"></a-plane>
+
+
+<!-- Floor -->
+
+<a-plane static-body id="floor" material="opacity: 0.0; transparent: true" width="1000" height="1000" rotation="-90 0 0" position="0 0 0"></a-plane>
+
+</a-scene>
+             
+
+  </body>
+</html>
+
+
+
+
+
+
