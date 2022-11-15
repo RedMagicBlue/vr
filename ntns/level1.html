@@ -178,9 +178,12 @@ function playing(index) {
 	<a-box static-body color="pink" scale="2 8 0.2" position="0 0 1" rotation="0 90 0" opacity="0.5" gui-interactable onclick="location.href='level1.html'"></a-box>
 </a-entity>
 
+	
+<!-- Play -->
+	
+<a-entity scale="3 3 3" geometry="primitive: plane; height: 1; width: 3;" gui-interactable sound="src: #laser; on: click; loop:true;" material="color: black; opacity: 0.0;" text="value: \n PLAY \n Level 1 \n ; shader: msdf; font: assets/orbitron/Orbitron-Regular.json; wrapCount: 10; align: center" position="0 1 8" rotation="0 0 0" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500";></a-entity>
 
-<a-entity geometry="primitive: plane; height: 1; width: 3;" gui-interactable sound="src: #laser; on: click; loop:true;" material="color: black; opacity: 0.0;" text="value: \n PLAY \n Level 1 \n ; shader: msdf; font: assets/orbitron/Orbitron-Regular.json; wrapCount: 10; align: center" position="0 1 8" rotation="0 0 0"></a-entity>
-
+	
 <!-- Walls -->
 
 <a-box static-body id="wall1" material="opacity: 0.0; transparent: true" rotation="0 0 0"   scale="60 100 2" position="0 0 21.0">  </a-box>
