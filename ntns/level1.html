@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>No Time No Space - RedMagicBlue Games</title><meta charset="utf-8" />
+    <title>NO T!ME NO SPACE - RedMagicBlue Games</title><meta charset="utf-8" />
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <script src="assets/engine.js"></script>
@@ -31,7 +31,7 @@
 
   <body>
 
-<a-scene physics="debug: true; gravity:-1.62; restitution: 0.9" loading-screen="dotsColor: #00ffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse" sound="src: #music; on: click; loop: true; volume: 0.7; rolloffFactor: 0">
+<a-scene physics="debug: true; gravity:-1.62; restitution: 0.9" loading-screen="dotsColor: #00ffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true">
 
 
 <!-- World -->
@@ -60,7 +60,7 @@ function playing(index) {
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 		<a-gui-cursor id="cursor"
 			raycaster="objects: [gui-interactable]"
-			fuse="true" fuse-timeout="100"
+                        fuse="true" fuse-timeout="100"
 			color="orange"
 			hover-color="white"
 			active-color="white"
@@ -152,9 +152,40 @@ function playing(index) {
 	<a-box color="blue" id="box53" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="-45 -45 45" position="0 55 0" event-set__click="material.color: red;" ></a-box> 
 	<a-box color="blue" id="box54" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="0 -45 0"    position="0 60 0" event-set__click="material.color: red;" ></a-box> 
 
-        <a-octahedron dynamic-body color="yellow" gui-interactable id="exit1" visible="false" onclick="location.href='level1.html'" scale="1.5 1.5 1.5" rotation="0 -45 0" position="10 10 10"  ></a-octahedron>
-        <a-octahedron dynamic-body color="green"  gui-interactable id="exit2" visible="false" onclick="location.href='level1.html'" scale="1.5 1.5 1.5" rotation="0 -45 0" position="10 20 -10" ></a-octahedron>
-        <a-octahedron dynamic-body color="pink"   gui-interactable id="exit3" visible="false" onclick="location.href='level1.html'" scale="1.5 1.5 1.5" rotation="0 -45 0" position="-10 30 10" ></a-octahedron>
+        <a-octahedron dynamic-body color="yellow" gui-interactable id="exit1" visible="false" onclick="location.href='level1.html'" scale="1.5 1.5 1.5" rotation="0 -45 0" position="10 30 10"  ></a-octahedron>
+        <a-octahedron dynamic-body color="green"  gui-interactable id="exit2" visible="false" onclick="location.href='level1.html'" scale="1.5 1.5 1.5" rotation="0 -45 0" position="10 40 -10" ></a-octahedron>
+        <a-octahedron dynamic-body color="pink"   gui-interactable id="exit3" visible="false" onclick="location.href='level1.html'" scale="1.5 1.5 1.5" rotation="0 -45 0" position="-10 50 10" ></a-octahedron>
+
+<!-- Play -->
+
+<a-gui-button
+		width="2.5" 
+		height="0.7" 
+		base-depth="0.025" 
+		depth="0.1"
+		gap="0.1"
+
+		onclick="buttonActionFunction" key-code="32"
+		value="P L A Y"
+		font-family="assets/orbitron/Orbitron-Regular.ttf"	
+		font-size="0.2"
+		margin="0 0 0.05 0"
+
+		font-color="black"
+		active-color="red"
+		hover-color="yellow"
+		border-color="white"
+		focus-color="black"
+		background-color="orange"
+
+		bevel="true"
+
+                position="0 2 10"
+
+                sound="src: #music; on: click;"
+
+               animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000">
+</a-gui-button>
 
 <!-- Wall -->
 
@@ -172,9 +203,5 @@ function playing(index) {
 
   </body>
 </html>
-
-
-
-
 
 
