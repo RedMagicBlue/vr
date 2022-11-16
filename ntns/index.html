@@ -31,12 +31,12 @@
 
 <body bg-color="black">
 
-<a-scene physics="debug: true; gravity:-1.62; restitution: 0.9" loading-screen="dotsColor: #00ffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true">
+<a-scene physics="debug: true; gravity:-1.62; restitution: 0.9" loading-screen="dotsColor: #00ffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" sound="src: #music; on: click; loop:true;">
 
 
 <!-- World -->
 
-<a-entity id="environment" environment="preset: tron; dressingAmount: 100; dressingColor: blue; groundColor: black; groundColor2: black; groundTexture:checkerboard; gridColor: red; ground: spikes; horizonColor:red;"></a-entity>
+<a-entity id="environment" environment="preset: tron; dressingAmount: 700; dressingColor: blue; groundColor: black; groundColor2: black; groundTexture:checkerboard; gridColor: red; ground: spikes; horizonColor:red;"></a-entity>
 
 
 <!-- Sound -->
@@ -57,7 +57,7 @@ function playing(index) {
 
 <!-- Camera -->
 
-<a-entity id="rig" position="0 40 18"movement-controls look-controls="pointerLockEnabled:true;" reset-on-collision="with: a-box">
+<a-entity id="rig" position="0 40 6"movement-controls look-controls="pointerLockEnabled:true;" reset-on-collision="with: a-box">
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 		
 		<a-cursor position="0 0 -.05" color="orange" scale="0.1 0.1 0.1"></a-cursor>
@@ -175,7 +175,7 @@ function playing(index) {
 	
 <!-- Play -->
 	
-<a-entity id="play" geometry="primitive: plane; height: 2; width: 4;" gui-interactable sound="src: #music; on: click; loop:true;" material="color: black; opacity: 0.0;" text="value: \n NO T!ME NO SPACE \n \n >PLAY< ; shader: msdf; font: assets/orbitron/Orbitron-Regular.json; wrapCount: 200; align: center" position="0 44 0" rotation="0 0 0"; event-set__click="_target: #rig; position: 0 0 18"></a-entity>
+<a-entity id="play" geometry="primitive: plane; height: 2; width: 4;" gui-interactable material="color: black; opacity: 0.0;" text="value: \n NO T!ME NO SPACE \n \n >PLAY< ; shader: msdf; font: assets/orbitron/Orbitron-Regular.json; wrapCount: 200; align: center" position="0 44 0" rotation="0 0 0"; event-set__click="_target: #rig; position: 0 0 18"></a-entity>
 
 <a-entity id="help">	
 	<a-plane width="2" height="2" position="-1 42 0"  material="src: ./images/pc.png;     transparent: true" shadow="" geometry="" rotation="0 0 0" ></a-plane>
