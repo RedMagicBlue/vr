@@ -59,14 +59,7 @@ function playing(index) {
 <a-entity id="rig" position="0 0 15" movement-controls look-controls="pointerLockEnabled:true;" reset-on-collision="with: a-box">
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 		
-		<a-gui-cursor id="cursor"
-			raycaster="objects: [gui-interactable]"
-                        fuse="true" fuse-timeout="100"
-			color="orange"
-			hover-color="white"
-			active-color="white"
-                        design="ring" >
-		</a-gui-cursor> 
+		<a-cursor position="0 0 -.05" color="white" scale=".03 .03 1"></a-cursor>
 
 	</a-entity>
 </a-entity>
@@ -181,7 +174,7 @@ function playing(index) {
 	
 <!-- Play -->
 	
-<a-entity id="play" geometry="primitive: plane; height: 2; width: 4;" gui-interactable sound="src: #laser; on: click; loop:true;" material="color: black; opacity: 0.0;" text="value: \n PLAY \n Level 1 \n ; shader: msdf; font: assets/orbitron/Orbitron-Regular.json; wrapCount: 10; align: center" position="0 1 8" rotation="0 0 0"></a-entity>
+<a-entity id="play" geometry="primitive: plane; height: 50; width: 100;" gui-interactable sound="src: #laser; on: click; loop:true;" material="color: black; opacity: 1.0;" text="value: \n NO T!ME NO SPACE \n Level 1 \n ; shader: msdf; font: assets/orbitron/Orbitron-Regular.json; wrapCount: 200; align: center" position="0 1 8" rotation="0 0 0" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 2500";"></a-entity>
 
 	
 <!-- Walls -->
@@ -200,5 +193,3 @@ function playing(index) {
 
   </body>
 </html>
-
-
