@@ -175,7 +175,10 @@ function playing(index) {
 	
 <!-- Play -->
 	
-<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body sound="src: #music; on: click; volume: 0.4; rolloffFactor: 0;" animation__mouseenter="property: position; to: 0 -5 0; startEvents: click; dur: 10;" event-set__click="_target: #rig; position: 0 0 18"></a-image>	
+<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body sound="src: #music; on: click; volume: 0.4; rolloffFactor: 0;" animation__mouseenter="property: position; to: 0 -5 0; startEvents: click; dur: 10;" event-set__click="_target: #rig; position: 0 0 18"
+	 animation__mouseenter="property: scale; to: 8.1 8.1 0; startEvents: mouseenter; dur: 200";
+         animation__mouseleave="property: scale; to: 8 8 8; startEvents: mouseleave; dur: 200";>
+</a-image>	
 	
 <!-- Walls -->
 
