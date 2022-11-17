@@ -12,6 +12,7 @@
     <script src="assets/physics.js"></script>
     <script src="assets/extras.js"></script>
     <script src="assets/environment.js"></script>
+    <script src="assets/sound.js"></script>
     <script src="assets/event.js"></script>
     <script src="assets/gui.js"></script>
     <script src="assets/walls.js"></script>
@@ -50,6 +51,27 @@
 
     <audio id="music" src="assets/music.mp3"  preload="auto" crossorigin="anonymous"></audio>
     <audio id="laser" src="assets/sound.wav" crossorigin="anonymous"></audio>
+
+<script>
+document.addEventListener("click", function () {
+  document.querySelector("a-image").setAttribute("visible", false);
+});
+
+function playing(index) {
+  console.log("now playing", index);
+  document.querySelector("#player").setAttribute("visible", true);
+}
+</script>
+
+
+<!-- Play -->
+	
+<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body 
+	animation__mouseenter="property: scale; to: 8.5 8.5 0; startEvents: mouseenter; dur: 200";
+        animation__mouseleave="property: scale; to: 8 8 0; startEvents: mouseleave; dur: 200";>
+	event-set__click="_target: #rig; position: 0 0 18">
+</a-image>	
+
 
 <!-- Camera -->
 
@@ -174,11 +196,6 @@
 	<a-box static-body color="magenta" scale="2 8 0.2" position="0 0 2" rotation="0 0 0"></a-box>
 	<a-box static-body color="magenta" scale="2 8 0.2" position="0 0 1" rotation="0 90 0" opacity="0.5" gui-interactable onclick="location.href='index.html'"></a-box>
 </a-entity>
-
-	
-<!-- Play -->
-	
-<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body sound="src: #music; on: click; volume: 0.3; rolloffFactor: 0" animation__mouseenter="property: position; to: 0 -15 0; visible:false; startEvents: click; dur: 10" event-set__click="_target: #rig; position: 0 0 18"></a-image>	
 
 	
 <!-- Walls -->
