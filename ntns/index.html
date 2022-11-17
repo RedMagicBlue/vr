@@ -158,9 +158,9 @@ function playing(index) {
 	<a-box color="blue" id="box53" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="-45 -45 45" position="0 80 -1" event-set__click="material.color: red;" ></a-box> 
 	<a-box color="blue" id="box54" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="0 -45 0"    position="0 80 1"  event-set__click="material.color: red;" ></a-box> 
 
-        <a-octahedron dynamic-body color="yellow" visible="false" gui-interactable id="exit1" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 30 0"   sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal1; position:10 2 -10;  visible: true;" ></a-octahedron>
-        <a-octahedron dynamic-body color="green"  visible="false" gui-interactable id="exit2" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 40 0"   sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal2; position:-10 2 10;  visible: true;" ></a-octahedron>
-        <a-octahedron dynamic-body color="pink"   visible="false" gui-interactable id="exit3" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 50 0"   sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal3; position:10 2 10;   visible: true;" ></a-octahedron>
+        <a-octahedron dynamic-body color="yellow"  visible="false" gui-interactable id="exit1" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal1; position:10 2 -10;  visible: true;" ></a-octahedron>
+        <a-octahedron dynamic-body color="green"   visible="false" gui-interactable id="exit2" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 40 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal2; position:-10 2 10;  visible: true;" ></a-octahedron>
+        <a-octahedron dynamic-body color="magenta" visible="false" gui-interactable id="exit3" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 50 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal3; position:10 2 10;   visible: true;" ></a-octahedron>
 
 
 <!-- Portals -->
@@ -178,15 +178,16 @@ function playing(index) {
 </a-entity>
 
 <a-entity id="portal3" visible="false" scale="1 1 1" position="-10 100 -10">
-	<a-box static-body color="pink" scale="2 8 0.2" position="0 0 0" rotation="0 0 0"></a-box>
-	<a-box static-body color="pink" scale="2 8 0.2" position="0 0 2" rotation="0 0 0"></a-box>
-	<a-box static-body color="pink" scale="2 8 0.2" position="0 0 1" rotation="0 90 0" opacity="0.5" gui-interactable onclick="location.href='index.html'"></a-box>
+	<a-box static-body color="magenta" scale="2 8 0.2" position="0 0 0" rotation="0 0 0"></a-box>
+	<a-box static-body color="magenta" scale="2 8 0.2" position="0 0 2" rotation="0 0 0"></a-box>
+	<a-box static-body color="magenta" scale="2 8 0.2" position="0 0 1" rotation="0 90 0" opacity="0.5" gui-interactable onclick="location.href='index.html'"></a-box>
 </a-entity>
 
 	
 <!-- Play -->
 	
-<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body sound="src: #music; on: click; volume: 0.4; rolloffFactor: 0;" event-set__click="_target: #rig; position: 0 0 18" event-set__click2="_target: #play; position: 0 -5 0; visible:false;"></a-image>	
+<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body sound="src: #music; on: click; volume: 0.5; rolloffFactor: 0;" animation__mouseenter="property: position; to: 0 -5 0; visible:false; startEvents: click; dur: 10" event-set__click="_target: #rig; position: 0 0 18"></a-image>	
+
 	
 <!-- Walls -->
 
@@ -195,6 +196,7 @@ function playing(index) {
 <a-box static-body id="wall3" material="opacity: 0.0; transparent: true" rotation="0 -90 0" scale="60 10000 2" position="-18 0 0" >  </a-box>
 <a-box static-body id="wall4" material="opacity: 0.0; transparent: true" rotation="0 0 0"   scale="60 10000 2" position="0 0 -15" >  </a-box>
  
+	
 <!-- Floor -->
 
 <a-plane static-body id="floor" material="opacity: 0.0;  transparent: true; " width="1000" height="1000" rotation="-90 0 0" position="0 0 0"></a-plane>
