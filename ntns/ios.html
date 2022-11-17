@@ -16,8 +16,6 @@
     <script src="assets/event.js"></script>
     <script src="assets/gui.js"></script>
     <script src="assets/walls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.1/dist/howler.min.js"></script>
-    <script src="assets/ios.js"></script>
   </head>
 
 <style>
@@ -68,14 +66,7 @@ function playing(index) {
 <a-entity id="rig" position="0 40 12"movement-controls look-controls="pointerLockEnabled:true;" reset-on-collision="with: a-box">
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 		
-		<a-gui-cursor id="cursor"
-						  raycaster="objects: [gui-interactable]"
-						  fuse="true" fuse-timeout="1000"
-						  color="white"
-						  hover-color="orange"
-						  active-color="orange"
-						  design="ring" >
-		</a-gui-cursor>
+		<a-cursor position="0 0 -.05" color="orange" scale="1 1 1"></a-cursor>
 
 	</a-entity>
 </a-entity>
