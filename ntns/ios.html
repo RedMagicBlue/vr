@@ -51,7 +51,8 @@
     <audio id="laser" src="assets/sound.wav" crossorigin="anonymous"></audio>
     
 <script>
-document.addEventListener("click", function () {
+    document.addEventListener("click", function () {
+  document.querySelector("a-image").setAttribute("visible", false);
 });
 
 function playing(index) {
