@@ -12,10 +12,11 @@
     <script src="assets/physics.js"></script>
     <script src="assets/extras.js"></script>
     <script src="assets/environment.js"></script>
-    <script src="assets/sound.js"></script>
     <script src="assets/event.js"></script>
     <script src="assets/gui.js"></script>
     <script src="assets/walls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.1/dist/howler.min.js"></script>
+    <script src="assets/script.js"></script>
   </head>
 
 <style>
@@ -47,27 +48,17 @@
 
 <!-- Sound -->
 
-    <audio id="music" src="assets/music.mp3" crossorigin="anonymous"></audio>
+    <audio id="music" src="assets/music.mp3"  preload="auto" crossorigin="anonymous"></audio>
     <audio id="laser" src="assets/sound.wav" crossorigin="anonymous"></audio>
-    
-<script>
-    document.addEventListener("click", function () {
-  document.querySelector("a-text").setAttribute("visible", false);
-});
 
-function playing(index) {
-  console.log("now playing", index);
-  document.querySelector("#player").setAttribute("visible", true);
-}
-</script>
-
+    <a-box position="0 0 0" color="cyan" audio="src: #music; loop: true;"></a-box>
 
 <!-- Camera -->
 
 <a-entity id="rig" position="0 40 12"movement-controls look-controls="pointerLockEnabled:true;" reset-on-collision="with: a-box">
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 		
-		<a-cursor position="0 0 -.05" color="orange" scale="0.1 0.1 0.1"></a-cursor>
+		<a-cursor position="0 0 -.05" color="orange" scale="1 1 1"></a-cursor>
 
 	</a-entity>
 </a-entity>
@@ -182,7 +173,7 @@ function playing(index) {
 	
 <!-- Play -->
 	
-<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" static-body sound="src: #music; on: click; volume: 1.0; rolloffFactor: 0" animation__mouseenter="property: position; to: 0 -15 0; visible:false; startEvents: click; dur: 10" event-set__click="_target: #rig; position: 0 0 18"></a-image>	
+<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body sound="src: #music; on: click; volume: 0.3; rolloffFactor: 0" animation__mouseenter="property: position; to: 0 -15 0; visible:false; startEvents: click; dur: 10" event-set__click="_target: #rig; position: 0 0 18"></a-image>	
 
 	
 <!-- Walls -->
