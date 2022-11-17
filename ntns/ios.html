@@ -12,11 +12,12 @@
     <script src="assets/physics.js"></script>
     <script src="assets/extras.js"></script>
     <script src="assets/environment.js"></script>
+    <script src="assets/sound.js"></script>
     <script src="assets/event.js"></script>
     <script src="assets/gui.js"></script>
     <script src="assets/walls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.1/dist/howler.min.js"></script>
-    <script src="assets/script.js"></script>
+    <script src="assets/sound.js"></script>
+    <script src="assets/audio.js"></script>
   </head>
 
 <style>
@@ -51,14 +52,19 @@
     <audio id="music" src="assets/music.mp3"  preload="auto" crossorigin="anonymous"></audio>
     <audio id="laser" src="assets/sound.wav" crossorigin="anonymous"></audio>
 
-    <a-box position="0 0 0" color="cyan" audio="src: #music; loop: true;"></a-box>
-
 <!-- Camera -->
 
 <a-entity id="rig" position="0 40 12"movement-controls look-controls="pointerLockEnabled:true;" reset-on-collision="with: a-box">
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 		
-		<a-cursor position="0 0 -.05" color="orange" scale="1 1 1"></a-cursor>
+		<a-gui-cursor id="cursor"
+						  raycaster="objects: [gui-interactable]"
+						  fuse="true" fuse-timeout="1000"
+						  color="white"
+						  hover-color="orange"
+						  active-color="orange"
+						  design="ring" >
+		</a-gui-cursor>
 
 	</a-entity>
 </a-entity>
@@ -187,7 +193,7 @@
 <!-- Floor -->
 
 <a-plane static-body id="floor" material="opacity: 0.0;  transparent: true; " width="1000" height="1000" rotation="-90 0 0" position="0 0 0"></a-plane>
-<a-box color="black" scale="1000 20 1000" position="0 -12 0"></a-box>
+<a-box color="black" scale="1000 20 1000" position="0 -12 0" audio="src: #music; loop: true;"></a-box>
 
 </a-scene>
              
