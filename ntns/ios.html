@@ -54,7 +54,7 @@
 
 <!-- Play -->
 	
-<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; visible:false; startEvents: click; dur: 10" event-set__click="_target: #rig; position: 0 0 18"></a-image>		
+<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body animation__mouseenter="property: scale; to: 0 0 0; visible:false; startEvents: click; dur: 10" event-set__click="_target: #rig; position: 0 0 18"></a-image>		
 
 
 <!-- Camera -->
@@ -157,13 +157,13 @@
 	<a-box color="blue" id="box54" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="0 -45 0"    position="0 80 1"  event-set__click="material.color: red;" ></a-box> 
 
         <a-octahedron dynamic-body color="yellow" gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="2 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal1; position:10 2 -10;  visible: true;" ></a-octahedron>
-        <a box id="exit1" static-body color="yellow" scale="2 0.9 2" position="2 29 0"></a-box>
+        <a-box id="exit1" static-body color="yellow" scale="2 0.9 2" position="2 29 0"></a-box>
 	
 	<a-octahedron dynamic-body color="green"    gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal2; position:-10 2 10;  visible: true;" ></a-octahedron>
-        <a box id="exit2" static-body color="green"  scale="2 0.9 2" position="0 29 0"></a-box>
+        <a-box id="exit2" static-body color="green"  scale="2 0.9 2" position="0 29 0"></a-box>
 	
 	<a-octahedron dynamic-body color="magenta"  gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="-2 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal3; position:10 2 10;   visible: true;" ></a-octahedron>
-        <a box id="exit3" static-body color="magenta" scale="2 0.9 2" position="-2 29 0"></a-box>
+        <a-box id="exit3" static-body color="magenta" scale="2 0.9 2" position="-2 29 0"></a-box>
 	
 
 <!-- Portals -->
