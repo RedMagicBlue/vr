@@ -2,7 +2,7 @@ AFRAME.registerComponent('audio', {
   schema: {
     src: { type: 'audio' },
     loop: { type: 'boolean' },
-    volume: { type: 'int', default: 1 },
+    volume: { type: 'int', default: 0.3 },
     distance: { type: 'int', default: 1000 },
     fade: { type: 'int', default: 5000 },
   },
