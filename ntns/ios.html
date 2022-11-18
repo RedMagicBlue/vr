@@ -78,9 +78,9 @@
 <!-- Static Objects -->
 
 <a-entity id="antimatter" rotation="0 0 0" position="0 1 0" animation="property: rotation; to: -360 360 -360; loop: true; easing: linear; dur: 5000"> 
-	<a-sphere id="antimatter1" gui-interactable color="black" radius="1" position="-20 3 0" sound="src: #laser; on: click;" static-body animation="property: position; to: 20 1 0;  loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit1; visible: true;"></a-sphere>
-	<a-sphere id="antimatter2" gui-interactable color="black" radius="1" position="-10 3 4" sound="src: #laser; on: click;" static-body animation="property: position; to: 10 1 4;  loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit2; visible: true;"></a-sphere>
-	<a-sphere id="antimatter3" gui-interactable color="black" radius="1" position="10 3 8"  sound="src: #laser; on: click;" static-body animation="property: position; to: -10 1 8; loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit3; visible: true;"></a-sphere>
+	<a-sphere id="antimatter1" gui-interactable color="black" radius="1" position="-20 3 0" sound="src: #laser; on: click;" static-body animation="property: position; to: 20 1 0;  loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit1; position: 0 -100 0"></a-sphere>
+	<a-sphere id="antimatter2" gui-interactable color="black" radius="1" position="-10 3 4" sound="src: #laser; on: click;" static-body animation="property: position; to: 10 1 4;  loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit2; position: 0 -100 0"></a-sphere>
+	<a-sphere id="antimatter3" gui-interactable color="black" radius="1" position="10 3 8"  sound="src: #laser; on: click;" static-body animation="property: position; to: -10 1 8; loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit3; position: 0 -100 0"></a-sphere>
 </a-entity>
 
 <a-entity rotation="0 0 0" position="0 11 0" animation="property: rotation; to: 360 360 -360; loop: true; easing: linear; dur: 10000"> 
@@ -156,10 +156,13 @@
 	<a-box color="blue" id="box53" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="-45 -45 45" position="0 80 -1" event-set__click="material.color: red;" ></a-box> 
 	<a-box color="blue" id="box54" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="0 -45 0"    position="0 80 1"  event-set__click="material.color: red;" ></a-box> 
 
-        <a-octahedron dynamic-body color="yellow"  visible="false" gui-interactable id="exit1" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal1; position:10 2 -10;  visible: true;" ></a-octahedron>
-        <a-octahedron dynamic-body color="green"   visible="false" gui-interactable id="exit2" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 40 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal2; position:-10 2 10;  visible: true;" ></a-octahedron>
-        <a-octahedron dynamic-body color="magenta" visible="false" gui-interactable id="exit3" scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 50 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal3; position:10 2 10;   visible: true;" ></a-octahedron>
-
+        <a-octahedron dynamic-body color="yellow"   gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="2 100 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal1; position:10 2 -10;  visible: true;" ></a-octahedron>
+        <a box id="exit1" static-body opacity"0.0" scale="2 2 2" position="2 99.9 0"></a-box>
+	<a-octahedron dynamic-body color="green"    gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 100 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal2; position:-10 2 10;  visible: true;" ></a-octahedron>
+        <a box id="exit2" static-body opacity"0.0" scale="2 2 2" position="0 99.9 0"></a-box>
+	<a-octahedron dynamic-body color="magenta"  gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="-2 100 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal3; position:10 2 10;   visible: true;" ></a-octahedron>
+        <a box id="exit3" static-body opacity"0.0" scale="2 2 2" position="2 99.9 0"></a-box>
+	
 
 <!-- Portals -->
 
