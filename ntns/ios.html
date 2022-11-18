@@ -156,12 +156,14 @@
 	<a-box color="blue" id="box53" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="-45 -45 45" position="0 80 -1" event-set__click="material.color: red;" ></a-box> 
 	<a-box color="blue" id="box54" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="0 -45 0"    position="0 80 1"  event-set__click="material.color: red;" ></a-box> 
 
-        <a-octahedron dynamic-body color="yellow"   gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="2 100 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal1; position:10 2 -10;  visible: true;" ></a-octahedron>
-        <a box id="exit1" static-body opacity"0.0" scale="2 2 2" position="2 99.9 0"></a-box>
-	<a-octahedron dynamic-body color="green"    gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 100 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal2; position:-10 2 10;  visible: true;" ></a-octahedron>
-        <a box id="exit2" static-body opacity"0.0" scale="2 2 2" position="0 99.9 0"></a-box>
-	<a-octahedron dynamic-body color="magenta"  gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="-2 100 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal3; position:10 2 10;   visible: true;" ></a-octahedron>
-        <a box id="exit3" static-body opacity"0.0" scale="2 2 2" position="2 99.9 0"></a-box>
+        <a-octahedron dynamic-body color="yellow" gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="2 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal1; position:10 2 -10;  visible: true;" ></a-octahedron>
+        <a box id="exit1" static-body color="yellow" scale="2 0.9 2" position="2 29 0"></a-box>
+	
+	<a-octahedron dynamic-body color="green"    gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="0 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal2; position:-10 2 10;  visible: true;" ></a-octahedron>
+        <a box id="exit2" static-body color="green"  scale="2 0.9 2" position="0 29 0"></a-box>
+	
+	<a-octahedron dynamic-body color="magenta"  gui-interactable scale="1.5 1.5 1.5" rotation="0 -45 0" position="-2 30 0"    sound="src: #laser; on: click;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #portal3; position:10 2 10;   visible: true;" ></a-octahedron>
+        <a box id="exit3" static-body color="magenta" scale="2 0.9 2" position="-2 29 0"></a-box>
 	
 
 <!-- Portals -->
@@ -196,7 +198,7 @@
 <!-- Floor -->
 
 <a-plane static-body id="floor" material="opacity: 0.0;  transparent: true; " width="1000" height="1000" rotation="-90 0 0" position="0 0 0"></a-plane>
-<a-box color="black" scale="500 20 500" position="0 -12 0" audio="src: #music; loop: true;"></a-box>
+<a-box color="black" scale="1000 20 1000" position="0 -12 0" audio="src: #music; loop: true;"></a-box>
 
 </a-scene>
              
