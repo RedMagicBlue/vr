@@ -52,25 +52,10 @@
     <audio id="music" src="assets/music.mp3"  preload="auto" crossorigin="anonymous"></audio>
     <audio id="laser" src="assets/sound.wav" crossorigin="anonymous"></audio>
 
-<script>
-document.addEventListener("click", function () {
-  document.querySelector("a-image").setAttribute("visible", false);
-});
-
-function playing(index) {
-  console.log("now playing", index);
-  document.querySelector("#player").setAttribute("visible", true);
-}
-</script>
-
 
 <!-- Play -->
 	
-<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body 
-   animation__mouseenter="property: scale; to: 8.5 8.5 0; startEvents: mouseenter; dur: 200"
-   animation__mouseleave="property: scale; to: 8 8 0; startEvents: mouseleave; dur: 200"
-   event-set__click="_target: #rig; position: 0 0 18">
-</a-image>	
+<a-image id="play" src="images/play.png" transparent="true" scale="8 8 0" position="0 46 0" gui-interactable static-body animation__mouseenter="property: position; to: 0 -100 0; visible:false; startEvents: click; dur: 10" event-set__click="_target: #rig; position: 0 0 18"></a-image>		
 
 
 <!-- Camera -->
