@@ -128,12 +128,12 @@ body {
 
 <body bg-color="black">
 
-<a-scene physics="debug: false; gravity: -200;" rain="width: 100; count: 10000;" loading-screen="dotsColor: #fffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse">
+<a-scene physics="debug: false; gravity:-200; restitution: 5" loading-screen="dotsColor: #fffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse">
 
 
 <!-- Camera -->
 
-<a-entity id="rig" position="0 20 0" movement-controls kinematic-body look-controls="pointerLockEnabled:true;">
+<a-entity id="rig" position="0 0 0" movement-controls kinematic-body look-controls="pointerLockEnabled:true;">
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 
 				<a-gui-cursor id="cursor"
@@ -152,29 +152,50 @@ body {
 
 <!-- World -->
 
-<a-entity id="box1" scale="5 0.1 5" rotation="0 0 0" static-body position="0 20 0" geometry="" material="src:url(images/icon.png); transparent: true"> 
-</a-entity>
-
-<!-- Moving platforms -->
-
-<a-image id="box2" scale="10 0.1 10" rotation="0 0 0" static-body position="2 5 0" src="images/icon.png" animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 50000"> 
-</a-image>     
-
-<a-entity id="box3" scale="10 0.1 10" rotation="0 0 0" static-body position="8 -15 0" geometry="" material="src:url(images/icon.png); transparent: true"  animation="property: rotation; to: 0 -360 0; loop: true; easing: linear; dur: 50000"> 
-</a-entity> 
-
-<a-entity id="box4" scale="10 0.1 10" rotation="0 0 0" static-body position="14 -55 0" geometry="" material="src:url(images/icon.png); transparent: true" animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 50000"> 
-</a-entity>   
-
-<a-entity id="box5" scale="20 0.1 20" rotation="0 0 0" static-body position="20 -100 0" geometry="" material="src:url(images/icon.png); transparent: true"> 
-</a-entity>   
-
-<a-gui-flex-container opacity="0.3" rotation="0 -90 0" position="5 -96 1">
-	<a-gui-button scale="3 6 0.5" onclick="location.href='level2.html'" key-code="32" active-color="green" background-color="green" border-color="green" hover-color="green"></a-gui-button>
-</a-gui-flex-container>
-
 <a-sky color="black"></a-sky>
 
+<a-box id="box1" static-body scale="10 0.5 10" position="0 0 0"></a-box>
+
+<a-box id="box2" static-body scale="10 0.5 10" position="0 -50 -10"></a-box>
+
+<a-box id="box3" static-body scale="10 0.5 10" position="0 -100 -20"></a-box>
+
+<a-box id="box4" static-body scale="10 0.5 10" position="0 -200 -30"></a-box>
+
+<a-box id="box5" static-body scale="10 0.5 10" position="0 -400 -40"></a-box>
+
+<!-- Portal -->
+
+<a-circle id="portal" static-body position="0 -400 -49" color="green" gui-interactable onclick="location.href='level2.html'"></a-circle>
+
+<!-- Objects -->
+
+<a-entity id="box1" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -30 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
+
+<a-entity id="box2" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -70 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 0 360 360; loop: true; easing: linear; dur: 10000"> 
+</a-entity>     
+
+<a-entity id="box3" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -80 -50"  geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 360 0; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
+
+<a-entity id="box4" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -120 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 0 360 360; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
+
+<a-entity id="box5" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -150 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 360 0; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
+
+<a-entity id="box6" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -180 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
+
+<a-entity id="box7" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -220 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 0 360 360; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
+
+<a-entity id="box8" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -250 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 360 0; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
+
+<a-entity id="box9" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -280 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"> 
+</a-entity>
 
 </a-scene>
 
@@ -206,4 +227,3 @@ function closeNav() {
 
   </body>
 </html>
-
