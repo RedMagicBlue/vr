@@ -152,22 +152,26 @@ body {
 
 <!-- World -->
 	
-<a-circle id="circle1" radius="20" rotation="0 0 0" static-body position="0 20 0" geometry="" material="src:url(images/icon.png);></a-circle>
+<a-assets>
+    <img id="yinyang" src="images/icon.png">
+</a-assets>
+	
+<a-circle id="circle1" radius="20" rotation="-90 0 0" static-body position="0 20 0" src="#yinyang"></a-circle>
 
 <!-- Moving platforms -->
-<a-circle id="circle2" radius="10" rotation="0 0 0" static-body position="2 5 0" geometry="" material="src:url(images/icon.png); 
-	  animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 50000"> 
+<a-circle id="circle2" radius="10" rotation="-90 0 0" static-body position="2 5 0" src="#yinyang" 
+	  animation="property: rotation; to: -90 360 0; loop: true; easing: linear; dur: 50000"> 
 </a-circle>     
 
-<a-circle id="circle3" radius="10" rotation="0 0 0" static-body position="8 -15 0" geometry="" material="src:url(images/icon.png); 
-	animation="property: rotation; to: 0 -360 0; loop: true; easing: linear; dur: 50000"> 
+<a-circle id="circle3" radius="10" rotation="-90 0 0" static-body position="8 -15 0" src="#yinyang" 
+	animation="property: rotation; to: -90 -360 0; loop: true; easing: linear; dur: 50000"> 
 </a-circle> 
 
-<a-circle id="circle4" radius="10" rotation="0 0 0" static-body position="14 -55 0" geometry="" material="src:url(images/icon.png); 
-	animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 50000"> 
+<a-circle id="circle4" radius="10" rotation="-90 0 0" static-body position="14 -55 0" src="#yinyang" 
+	animation="property: rotation; to: -90 360 0; loop: true; easing: linear; dur: 50000"> 
 </a-circle>   
 
-<a-circle id="circle5" radius="20" rotation="0 0 0" static-body position="20 -100 0" geometry="" material="src:url(images/icon.png);></a-circle>   
+<a-circle id="circle5" radius="20" rotation="-90 0 0" static-body position="20 -100 0" src="#yinyang"></a-circle>   
 
 <a-gui-flex-container opacity="0.3" rotation="0 -90 0" position="5 -96 1">
 	<a-gui-button scale="3 6 0.5" onclick="location.href='level2.html'" key-code="32" active-color="green" background-color="green" border-color="green" hover-color="green"></a-gui-button>
