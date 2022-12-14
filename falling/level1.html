@@ -17,7 +17,6 @@
     <script src="assets/audio.js"></script>
     <script src="assets/sound.js"></script>
     <script src="assets/rain.js"></script>
-    <script src="https://unpkg.com/aframe-svg-extruder@1.0.0/dist/index.min.js"></script>
   </head>
 
 <style>
@@ -158,17 +157,8 @@ body {
 
 <!-- Moving platforms -->
 
-<a-asset-item id="yinyang" src="images/icon.svg"></a-asset-item>
-
-
-<a-entity
-    svg="src: #yinyang; proportionalScale: 2; extrude: 1; zFactor: 0.001;"
-    position="0 20 -5">
-</a-entity>
-
-
-<a-entity id="box2" scale="10 0.1 10" rotation="0 0 0" static-body position="2 5 0" geometry="" material="src:url(images/icon.png); transparent: true"    animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 50000"> 
-</a-entity>     
+<a-image id="box2" scale="10 0.1 10" rotation="0 0 0" static-body position="2 5 0" src="images/icon.png" animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 50000"> 
+</a-image>     
 
 <a-entity id="box3" scale="10 0.1 10" rotation="0 0 0" static-body position="8 -15 0" geometry="" material="src:url(images/icon.png); transparent: true"  animation="property: rotation; to: 0 -360 0; loop: true; easing: linear; dur: 50000"> 
 </a-entity> 
