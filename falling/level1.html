@@ -16,7 +16,7 @@
     <script src="assets/gui.js"></script>
     <script src="assets/audio.js"></script>
     <script src="assets/sound.js"></script>
-    <script src="assets/rain.js"></script>
+    <script src="assets/particles.js"></script>
   </head>
 
 <style>
@@ -128,20 +128,20 @@ body {
 
 <body bg-color="black">
 
-<a-scene physics="debug: false; gravity:-200; restitution: 5" loading-screen="dotsColor: #fffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse">
+<a-scene physics="debug: false; gravity:-200; restitution: 5" particle-system="preset: snow; particleCount: 15000; color:red, blue; rotationAxis:y; positionSpread:0 1000 0;" loading-screen="dotsColor: #fffff; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true" cursor="rayOrigin: mouse">
 
 
 <!-- Camera -->
 
-<a-entity id="rig" position="0 0 0" movement-controls kinematic-body look-controls="pointerLockEnabled:true;">
+<a-entity id="rig" position="0 400 0" look-controls="pointerLockEnabled:true;">
 	<a-entity id="camera" camera position="0 1.6 0" cursor-visible="true">
 
 				<a-gui-cursor id="cursor"
 						  raycaster="objects: [gui-interactable]"
 						  fuse="true" fuse-timeout="2000"
-						  color="#ECEFF1"
-						  hover-color="red"
-						  active-color="red"
+						  color="white"
+						  hover-color="white"
+						  active-color="white"
 						  design="ring" > <!-- dot, ring, reticle, cross  -->
 				</a-gui-cursor> <!-- /cursor -->
 
@@ -154,48 +154,7 @@ body {
 
 <a-sky color="black"></a-sky>
 
-<a-box id="box1" static-body scale="10 0.5 10" position="0 0 0"></a-box>
-
-<a-box id="box2" static-body scale="10 0.5 10" position="0 -50 -10"></a-box>
-
-<a-box id="box3" static-body scale="10 0.5 10" position="0 -100 -20"></a-box>
-
-<a-box id="box4" static-body scale="10 0.5 10" position="0 -200 -30"></a-box>
-
-<a-box id="box5" static-body scale="10 0.5 10" position="0 -400 -40"></a-box>
-
-<!-- Portal -->
-
-<a-circle id="portal" static-body position="0 -398 -49" color="white" material="src:url(images/icon.png);" gui-interactable onclick="location.href='level2.html'" animation="property: rotation; to: 360 0 0; loop: true; easing: linear; dur: 5000;"></a-circle>
-
-<!-- Objects -->
-
-<a-entity id="box1" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -30 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
-
-<a-entity id="box2" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -70 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 0 360 360; loop: true; easing: linear; dur: 10000"> 
-</a-entity>     
-
-<a-entity id="box3" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -80 -50"  geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 360 0; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
-
-<a-entity id="box4" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -120 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 0 360 360; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
-
-<a-entity id="box5" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -150 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 360 0; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
-
-<a-entity id="box6" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -180 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
-
-<a-entity id="box7" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -220 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 0 360 360; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
-
-<a-entity id="box8" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -250 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 360 0; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
-
-<a-entity id="box9" scale="1.5 1.5 1.5" rotation="0 0 0" static-body position="0 -280 -50" geometry="" material="src:url(images/icon.png);" animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"> 
-</a-entity>
+<a-image id="portal" static-body position="0 -400 0" scale="5 5 5" rotation="90 0 0"  material="src:url(images/icon.png);" gui-interactable onclick="location.href='level2.html'" animation="property: rotation; to: 90 0 360; loop: true; easing: linear; dur: 5000;"></a-image>
 
 </a-scene>
 
