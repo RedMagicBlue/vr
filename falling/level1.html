@@ -167,9 +167,13 @@ body {
 
 <a-sky color="black"></a-sky>
 	
-<a-entity id="yinyang1" scale="3 3 3" rotation="0 0 0" gui-interactable static-body position="10 50 0" geometry="" material="src:url(images/icon.png);" 
+<a-entity id="yinyang1" scale="3 3 3" rotation="0 0 0" gui-interactable position="10 50 0" geometry="" material="src:url(images/icon.png);" 
 	  animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"
-	  animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit2; position: 0 -400 0;"> 
+	  animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; event-set__click="_target: #exit1; opacity: true;"> 
+</a-entity>
+	
+<a-entity id="exit1" opacity="false" scale="10 10 10" rotation="0 0 0" gui-interactable onclick="location.href='level2.html'" position="0 100 0" geometry="" material="src:url(images/icon.png);" 
+	  animation="property: rotation; to: 360 0 360; loop: true; easing: linear; dur: 10000"> 
 </a-entity>
 
 </a-scene>
