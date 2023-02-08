@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <title>Caldo - Kalt</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Caldo - Kalt by ARTOLDO (Sara Ferro & Chris Weil)" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author" content="RedMagicBlue">
+    <meta property="og:image" content="./images/banner.jpg" />
+    <link rel="icon" type="image/png" href="./images/icon.png" />
+    <script src="assets/engine.js"></script>
+    <script src="assets/physics.js"></script>
+    <script src="assets/extras.js"></script>
+    <script src="assets/environment.js"></script>
+    <script src="assets/event.js"></script>
+    <script src="assets/gui.js"></script>
+    <script src="assets/walls.js"></script>
+    <script src="assets/sound.js"></script>
+    <script src="assets/audio.js"></script>
+    <script src="assets/particles.js"></script>
+  </head>
+
+<style>
+.a-dialog-allow-button {
+  background-color: white;
+}
+
+.a-dialog-deny-button {
+  background-color: white;
+}
+
+.a-dialog-ok-button {
+   background-color: white;
+ }
+</style>
+
+</head>
+
+
+<body bg-color="black">
+
+<a-scene physics="debug: false; gravity:-1.62; restitution: 0.9" particle-system="preset: snow; particleCount: 15000; color:black, red; rotationAxis:y; positionSpread:0 1000 0; velocityValue: 0 5 0" loading-screen="dotsColor: red; backgroundColor: black" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" antialias="true">
+
+
+<!-- World -->
+
+<a-entity id="environment" environment="preset: volcano; dressingColor: blue; horizonColor:blue;"></a-entity>
+
+<a-ocean color="red" width="5000" depth="5000" density="30" speed="5" position="0 1 0"></a-ocean>
+
+<!-- Sound -->
+
+    <audio id="music" src="assets/music.mp3"     crossorigin="anonymous"></audio>
+	
+    <audio id="laser" src="assets/laser.m4a"     crossorigin="anonymous"></audio>
+	
+    <audio id="effect1" src="assets/effect1.m4a" crossorigin="anonymous"></audio>
+    <audio id="effect2" src="assets/effect2.m4a" crossorigin="anonymous"></audio>
+    <audio id="effect3" src="assets/effect3.m4a" crossorigin="anonymous"></audio>
+	
+	
+<!-- Camera -->
+
+<a-entity id="rig" position="0 10 18"movement-controls look-controls="pointerLockEnabled:true;" reset-on-collision="with: a-box" animation="property: position; to: 0 2 18;  easing: linear; dur: 5000">
+	<a-entity id="camera" camera position="0 2 0" cursor-visible="true">
+		
+		<a-gui-cursor id="cursor"
+						  raycaster="objects: [gui-interactable]"
+						  fuse="true" fuse-timeout="1000"
+						  color="white"
+						  hover-color="white"
+						  active-color="white"
+						  design="reticle" >
+		</a-gui-cursor>
+
+	</a-entity>
+</a-entity>
+
+
+<!-- Static Objects -->
+
+<a-entity id="antimatter" rotation="0 0 0" position="0 1 0" animation="property: rotation; to: -360 360 -360; loop: true; easing: linear; dur: 5000"> 
+	<a-sphere id="antimatter1" gui-interactable color="black" radius="1" position="-20 3 0" sound="src: #effect1; on: click;" static-body animation="property: position; to: 20 1 0;  loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; ></a-sphere>
+	<a-sphere id="antimatter2" gui-interactable color="red"   radius="1" position="-10 3 4" sound="src: #effect1; on: click;" static-body animation="property: position; to: 10 1 4;  loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; ></a-sphere>
+	<a-sphere id="antimatter3" gui-interactable color="gold"  radius="1" position="10 3 8"  sound="src: #effect1; on: click;" static-body animation="property: position; to: -10 1 8; loop: true; easing: linear; dur: 10500; dir: alternate;" animation__mouseenter="property: scale; to: 0 0 0; startEvents: click; dur: 500"; ></a-sphere>
+</a-entity>
+
+<a-entity rotation="0 0 0" position="0 11 0" animation="property: rotation; to: 360 360 -360; loop: true; easing: linear; dur: 10000"> 	
+	<a-octahedron color="red"  id="octahedron1" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-8 2 -8"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron2" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-6 2 -6"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron3" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-4 2 -4"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron4" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-2 2 -2"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron5" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="0 2 0"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron6" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="2 2 2"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron>  
+        <a-octahedron color="red"  id="octahedron7" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="4 2 4"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron8" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="6 2 6"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="red"  id="octahedron9" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="8 2 8"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+</a-entity>
+
+<a-entity rotation="0 0 0" position="5 20 0" animation="property: rotation; to: 360 360 -360; loop: true; easing: linear; dur: 10000"> 
+	<a-octahedron color="red"  id="octahedron10" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-8 2 -8"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron11" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-6 2 -6"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron12" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-4 2 -4"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron13" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-2 2 -2"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron14" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="0 2 0"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron15" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="2 2 2"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron>  
+        <a-octahedron color="red"  id="octahedron16" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="4 2 4"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron17" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="6 2 6"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="red"  id="octahedron18" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="8 2 8"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+</a-entity>
+
+<a-entity rotation="0 0 0" position="-10 20 0" animation="property: rotation; to: 360 360 -360; loop: true; easing: linear; dur: 10000"> 
+	<a-octahedron color="red"  id="octahedron19" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-8 2 -8"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron20" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-6 2 -6"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron21" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-4 2 -4"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron22" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-2 2 -2"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron23" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="0 2 0"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron24" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="2 2 2"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron>  
+        <a-octahedron color="red"  id="octahedron25" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="4 2 4"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron26" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="6 2 6"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="red"  id="octahedron27" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="8 2 8"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+</a-entity>
+
+<a-entity rotation="0 0 0" position="15 11 0" animation="property: rotation; to: 360 360 -360; loop: true; easing: linear; dur: 10000"> 
+	<a-octahedron color="red"  id="octahedron28" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-8 2 -8"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron29" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-6 2 -6"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron30" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-4 2 -4"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron31" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-2 2 -2"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron32" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="0 2 0"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron33" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="2 2 2"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron>  
+        <a-octahedron color="red"  id="octahedron34" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="4 2 4"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron35" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="6 2 6"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="red"  id="octahedron36" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="8 2 8"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+</a-entity>
+
+<a-entity rotation="0 0 0" position="-15 11 0" animation="property: rotation; to: 360 360 -360; loop: true; easing: linear; dur: 10000"> 
+	<a-octahedron color="red"  id="octahedron37" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-8 2 -8"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron38" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-6 2 -6"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron39" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-4 2 -4"  animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="blue" id="octahedron40" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="-2 2 -2"  animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+	<a-octahedron color="red"  id="octahedron41" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="0 2 0"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron42" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="2 2 2"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron>  
+        <a-octahedron color="red"  id="octahedron43" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="4 2 4"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="blue" id="octahedron44" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="6 2 6"    animation="property: rotation; to: -360 0 -360; loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+        <a-octahedron color="red"  id="octahedron45" gui-interactable sound="src: #effect3; on: click;" scale="1.5 1.5 1.5" static-body position="8 2 8"    animation="property: rotation; to: 360 0 360;   loop: true; easing: linear; dur: 5000" animation__mouseenter="property: position; to: 0 500 0; startEvents: click; dur: 5000"></a-octahedron> 
+</a-entity>
+
+
+<!-- Dynamic Objects -->
+
+	<a-octahedron color="red"  id="octahedron46" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="45 0 -45"   position="0 80 1"   event-set__click="material.color: blue;"> </a-octahedron> 
+	<a-octahedron color="blue" id="octahedron47" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="45 0 -45"   position="1 80 -1"  event-set__click="material.color: red;">  </a-octahedron> 
+	<a-octahedron color="red"  id="octahedron48" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="0 45 0"     position="-1 80 1"  event-set__click="material.color: blue;"> </a-octahedron> 
+	<a-octahedron color="blue" id="octahedron49" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="-45 0 45"   position="2 80 -1"  event-set__click="material.color: red;">  </a-octahedron> 
+	<a-octahedron color="red"  id="octahedron50" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="45 0 45"    position="-2 80 1"  event-set__click="material.color: blue;"> </a-octahedron> 
+	<a-octahedron color="blue" id="octahedron51" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="-45 45 0"   position="0 85 -1"  event-set__click="material.color: red;">  </a-octahedron> 
+	<a-octahedron color="red"  id="octahedron52" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="45 45 45"   position="1 85 1"   event-set__click="material.color: blue;"> </a-octahedron> 
+	<a-octahedron color="blue" id="octahedron53" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="-45 -45 45" position="-1 85 -1" event-set__click="material.color: red;">  </a-octahedron> 
+	<a-octahedron color="red"  id="octahedron54" gui-interactable sound="src: #laser; on: click;" scale="1.5 1.5 1.5" dynamic-body="linearDamping: 0.01;" rotation="0 -45 0"    position="0 75 1"   event-set__click="material.color: blue;"> </a-octahedron>
+   
+
+<!-- Walls -->
+
+<a-box static-body id="wall1" material="opacity: 0.0; transparent: true" rotation="0 0 0"   scale="60 10000 2" position="0 0 21.0">  </a-box>
+<a-box static-body id="wall2" material="opacity: 0.0; transparent: true" rotation="0 -90 0" scale="60 10000 2" position="20 0 0"  >  </a-box>
+<a-box static-body id="wall3" material="opacity: 0.0; transparent: true" rotation="0 -90 0" scale="60 10000 2" position="-18 0 0" >  </a-box>
+<a-box static-body id="wall4" material="opacity: 0.0; transparent: true" rotation="0 0 0"   scale="60 10000 2" position="0 0 -15" >  </a-box>
+ 
+	
+<!-- Floor -->
+
+<a-plane static-body id="floor" material="opacity: 0.0;  transparent: true; " width="1000" height="1000" rotation="-90 0 0" position="0 0 0"></a-plane>
+<a-box color="black" scale="200 20 200" position="0 -12 0" audio="src: #music; loop: true;"></a-box>
+
+</a-scene>
+             
+
+  </body>
+</html>
